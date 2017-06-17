@@ -1,0 +1,13 @@
+{
+  "name": "quill operational transform",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "graphql": "^0.10.1",
+    "meteor-node-stubs": "^0.2.11",
+    "quill": "^1.2.6"
+  }
+}

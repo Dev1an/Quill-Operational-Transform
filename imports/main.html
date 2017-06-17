@@ -1,0 +1,63 @@
+<head>
+    <title>Operational transform with quill</title>
+</head>
+
+<body>
+    <h1>Operational transform with quill</h1>
+
+    <table>
+        <tr>
+            <td>{{> TextEditor}}</td>
+            <td width="50%">{{> DeltaEditor}}</td>
+        </tr>
+    </table>
+</body>
+
+<template name="TextEditor">
+    <div></div>
+</template>
+
+<template name="DeltaEditor">
+    <ol>
+        {{#each deltas}}
+            {{> DeltaView}}
+        {{/each}}
+    </ol>
+</template>
+
+<template name="DeltaView">
+    <li>
+        <ul>
+            {{#each ops}}
+                <li style="list-style-type: none">{{> Template.dynamic template=operationView}}</li>
+            {{/each}}
+        </ul>
+        <div class="cursor-container{{#if containsCursor}} cursor{{/if}}">
+            <div></div>
+            {{#if containsTemporary}}
+                <ol>
+                    {{#each deltas}}
+                        {{> DeltaView}}
+                    {{/each}}
+                    <button>Merge into parent</button>
+                </ol>
+            {{/if}}
+        </div>
+    </li>
+</template>
+
+<template name="InsertOperation">
+    + {{insert}}
+</template>
+
+<template name="DeleteOperation">
+    - {{delete}}
+</template>
+
+<template name="RetainOperation">
+... <span style="color: gray">{{retain}}</span> {{#if attributes}} (changed attributes) {{/if}}
+</template>
+
+<template name="UnknownOperation">
+    Unknown
+</template>
