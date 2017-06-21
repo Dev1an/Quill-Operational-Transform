@@ -1,0 +1,1 @@
+table{width:100%}td{vertical-align:top}ol>li>ul{background:#eee;border-radius:2px}.cursor-container{padding:0.5em 0}.cursor-container>div{height:1px}ol>li:hover>.cursor-container>div{background-color:lightblue}ol>li:hover>.cursor-container.cursor>div,.cursor-container.cursor>div{background-color:dodgerblue}
