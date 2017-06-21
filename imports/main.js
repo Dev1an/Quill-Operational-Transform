@@ -129,4 +129,3 @@ function deserialiseAndCompose(composite, object) {
     return composite.compose(new Delta(object.ops))
 }
 
-D = Deltas
